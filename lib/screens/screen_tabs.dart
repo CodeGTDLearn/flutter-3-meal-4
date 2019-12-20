@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_4/config/titles_icons.dart';
 
 import '../config/tabs.dart';
 import '../entity/meal.dart';
@@ -14,6 +15,7 @@ class ScreenTabs extends StatefulWidget {
 }
 
 class _ScreenTabsState extends State<ScreenTabs> {
+  static Map<String, Object> titlesAndIcons = TitlesAndIcons().tabMenus;
   List<Map<String, Object>> _tabPages;
   int _selectedTabByIndex = 0;
 
@@ -32,7 +34,7 @@ class _ScreenTabsState extends State<ScreenTabs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Tabs to Select')),
+      appBar: AppBar(title: Text(_tabPages[_selectedTabByIndex]['titlePage'])),
       drawer: null,
       body: _tabPages[_selectedTabByIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
@@ -44,12 +46,12 @@ class _ScreenTabsState extends State<ScreenTabs> {
         selectedFontSize: 20,
         items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.category),
-              title: Text('Category'),
+              title: Text(titlesAndIcons['categoryTitle']),
+              icon: Icon(titlesAndIcons['categoryIcon']),
               backgroundColor: Theme.of(context).primaryColor),
           BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              title: Text('Category'),
+              title: Text(titlesAndIcons['favoriteTitle']),
+              icon: Icon(titlesAndIcons['categoryIcon']),
               backgroundColor: Theme.of(context).primaryColor),
         ],
       ),
