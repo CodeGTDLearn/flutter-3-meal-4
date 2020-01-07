@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:meal_4/screens/screen_tabs.dart';
 
-import './data/db_meals.dart';
+import './data/meals.dart';
 import './entity/meal.dart';
 import 'config/routes.dart';
 import 'config/themes.dart';
@@ -51,10 +50,10 @@ class _MyAppState extends State<MyApp> {
 	@override
 	Widget build(BuildContext context){
 		return MaterialApp(
-			title: 'Meals 3',
+			title: 'Meals 4',
 			debugShowCheckedModeBanner: false,
 			theme: AppTheme().themeData,
-			routes: Routes(_favoriteMeals).toScreens(),
+			routes: Routes(_favoriteMeals,_favoriteMeals).toScreens(),
 //			onGenerateRoute: (settings){
 //				return MaterialPageRoute(builder: (ctx)=> ScreenTabs(_favoriteMeals));
 //			},

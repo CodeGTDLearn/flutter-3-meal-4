@@ -4,7 +4,6 @@ import 'package:meal_4/config/titles_icons.dart';
 import '../config/tabs.dart';
 import '../entity/meal.dart';
 
-
 class ScreenTabs extends StatefulWidget {
   List<Meal> _favoriteMeals;
 
@@ -15,7 +14,7 @@ class ScreenTabs extends StatefulWidget {
 }
 
 class _ScreenTabsState extends State<ScreenTabs> {
-  static Map<String, Object> titlesAndIcons = TitlesAndIcons().tabMenus;
+  final Map<String, Object> titlesAndIcons = TitlesAndIcons().tabMenus;
   List<Map<String, Object>> _tabPages;
   int _selectedTabByIndex = 0;
 
@@ -37,13 +36,20 @@ class _ScreenTabsState extends State<ScreenTabs> {
       appBar: AppBar(title: Text(_tabPages[_selectedTabByIndex]['titlePage'])),
       drawer: null,
       body: _tabPages[_selectedTabByIndex]['page'],
+
+      //BottonNavigatorTab
       bottomNavigationBar: BottomNavigationBar(
-        onTap: _selectTab,
+        //configs
         backgroundColor: Theme.of(context).primaryColor,
         unselectedItemColor: Colors.white,
         selectedItemColor: Theme.of(context).accentColor,
         currentIndex: _selectedTabByIndex,
         selectedFontSize: 20,
+
+        //detecta os 2 Tab Items, e alterna entre eles, automatic
+        onTap: _selectTab,
+
+        //barItems
         items: [
           BottomNavigationBarItem(
               title: Text(titlesAndIcons['categoryTitle']),

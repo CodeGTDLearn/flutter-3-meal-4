@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
-import '../enums/enum_affordability.dart';
-import '../enums/enum_complexity.dart';
+import '../enums/affordability.dart';
+import '../enums/complexity.dart';
 
 class Meal {
   final String id;

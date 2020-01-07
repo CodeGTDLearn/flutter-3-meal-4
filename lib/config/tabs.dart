@@ -1,7 +1,7 @@
 import '../config/titles_icons.dart';
 import '../entity/meal.dart';
-import '../screens/screen_category_menu.dart';
-import '../screens/screen_favorites.dart';
+import '../screens/category_menu.dart';
+import '../screens/favorites.dart';
 
 class TabPages {
   final List<Meal> _favoriteMeals;

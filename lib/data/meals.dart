@@ -1,6 +1,6 @@
 import '../entity/meal.dart';
-import '../enums/enum_affordability.dart';
-import '../enums/enum_complexity.dart';
+import '../enums/affordability.dart';
+import '../enums/complexity.dart';
 
 const DB_MEALS = const [
   Meal(
