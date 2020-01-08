@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:meal_4/config/routes.dart';
 
 class WidgetCategory extends StatelessWidget {
-  final String id;
-  final String title;
-  final Color color;
+  final String _id;
+  final String _title;
+  final Color _color;
 
-  WidgetCategory(this.id, this.title, this.color);
+  WidgetCategory(this._id, this._title, this._color);
 
   @override
   Widget build(BuildContext context) {
@@ -16,12 +16,12 @@ class WidgetCategory extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(15),
         child: Text(
-          this.title,
+          this._title,
           style: Theme.of(context).textTheme.title,
         ),
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [color, this.color.withOpacity(0.7)],
+            colors: [_color, this._color.withOpacity(0.7)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -33,7 +33,7 @@ class WidgetCategory extends StatelessWidget {
   }
 
   void goToScreenCategoryMeals(BuildContext context) {
-//    Navigator.of(context).pushNamed(Routes.toScreenCategoryMeals,
-//        arguments: {'id': this.id, 'title': this.title});
+    Navigator.of(context).pushNamed(Routes.toScreenCategoryMeals,
+        arguments: {'id': this._id, 'title': this._title});
   }
 }

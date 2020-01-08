@@ -12,7 +12,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 //	Map<String, bool> _myAppFilters = FILTERS;
-//	List<Meal> _displayedMeals = DB_MEALS;
+	List<Meal> _displayedMeals = DB_MEALS;
 	List<Meal> _favoriteMeals = [];
 
 
@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
 			title: 'Meals 4',
 			debugShowCheckedModeBanner: false,
 			theme: AppTheme().themeData,
-			routes: Routes(_favoriteMeals,_favoriteMeals).toScreens(),
+			routes: Routes(_favoriteMeals,_displayedMeals).toScreens(),
 //			onGenerateRoute: (settings){
 //				return MaterialPageRoute(builder: (ctx)=> ScreenTabs(_favoriteMeals));
 //			},
