@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meal_4/entity/meal.dart';
-import 'package:meal_4/widget/widget_meal.dart';
+import 'package:meal_4/widget/card_meal.dart';
 
 class ListMeals extends StatefulWidget {
   final List<Meal> _mealsByCategoryId;
@@ -17,7 +17,7 @@ class _ListMealsState extends State<ListMeals> {
     return ListView.builder(
       itemCount: widget._mealsByCategoryId.length,
       itemBuilder: (ctx, index) {
-        return WidgetMeal(
+        return CardMeal(
           id: widget._mealsByCategoryId[index].id,
           title: widget._mealsByCategoryId[index].title,
           imageUrl: widget._mealsByCategoryId[index].imageUrl,
