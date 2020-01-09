@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
 import 'package:meal_4/config/routes.dart';
 import 'package:meal_4/config/titles_icons.dart';
 import 'package:meal_4/enums/affordability.dart';
@@ -13,7 +14,7 @@ class WidgetMeal extends StatelessWidget {
   final Complexity complex;
   final Affordability afford;
 
-  final Map<String, Object> icons = TitlesAndIcons().widgetMealIcons;
+  final Map<String, Object> _icons = TitlesAndIcons().widgetMealIcons;
 
   WidgetMeal(
       {@required this.id,
@@ -32,9 +33,9 @@ class WidgetMeal extends StatelessWidget {
         elevation: 4,
         margin: EdgeInsets.all(10),
         child: Column(
-          children: <Widget>[
+          children: [
             Stack(
-              children: <Widget>[
+              children: [
                 ClipRRect(
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(15),
@@ -59,18 +60,18 @@ class WidgetMeal extends StatelessWidget {
                             softWrap: true,
                             overflow: TextOverflow.fade,
                             textAlign: TextAlign.center))),
-                Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      _buildRow(icons['duration'], '$this.duration min'),
-                      _buildRow(icons['complex'], describeEnum(this.complex)),
-                      _buildRow(icons['afford'], describeEnum(this.afford)),
-                    ],
-                  ),
-                )
               ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  _buildRow(_icons['duration'], '$duration min'),
+                  _buildRow(_icons['complex'], describeEnum(this.complex)),
+                  _buildRow(_icons['afford'], describeEnum(this.afford)),
+                ],
+              ),
             )
           ],
         ),

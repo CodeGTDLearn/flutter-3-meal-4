@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
 	@override
 	Widget build(BuildContext context){
 		return MaterialApp(
-			title: 'Meals 4',
+			title: 'Meals 04',
 			debugShowCheckedModeBanner: false,
 			theme: AppTheme().themeData,
 			routes: Routes(_favoriteMeals,_displayedMeals).toScreens(),
