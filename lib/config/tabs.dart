@@ -5,7 +5,7 @@ import '../screens/favorites.dart';
 
 class TabPages {
   final List<Meal> _favoriteMeals;
-  static Map<String, Object> titles = TitlesAndIcons().tabMenus;
+  static Map<String, Object> titles = TitlesAndIcons().tabs;
 
   TabPages(this._favoriteMeals);
 
@@ -13,11 +13,11 @@ class TabPages {
     return [
       {
         'page': ScreenCategoryMenu(),
-        'titlePage': titles['categoryTitle'],
+        'title': titles['categoryTitle'],
       },
       {
         'page': ScreenFavorites(_favoriteMeals),
-        'titlePage': titles['favoriteTitle']
+        'title': titles['favoriteTitle']
       }
     ];
   }

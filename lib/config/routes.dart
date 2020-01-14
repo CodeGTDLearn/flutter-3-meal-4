@@ -18,7 +18,7 @@ class Routes {
     return {
       _tabs: (context) => ScreenTabs(this._favoriteMeals),
       _categoryMeals: (context) => ScreenCategoryMeals(this._displayedMeals),
-      //_toScreenMealsDetails: (context) => ScreenMealsDetails(),
+
     };
   }
 

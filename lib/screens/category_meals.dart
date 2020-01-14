@@ -12,21 +12,21 @@ class ScreenCategoryMeals extends StatefulWidget {
 }
 
 class _ScreenCategoryMealsState extends State<ScreenCategoryMeals> {
-  var _initialDisplayedMealsLocker = false;
-  List<Meal> _mealListByCategoryId;
+  var _showDisplayedMealsOnce = false;
+  List<Meal> _mealsByCategoryId;
   String _categoryTitle;
 
   @override
   void didChangeDependencies() {
-    if (!_initialDisplayedMealsLocker) {
+    if (!_showDisplayedMealsOnce) {
       final _routesArgs =
           ModalRoute.of(context).settings.arguments as Map<String, String>;
       final _categoryId = _routesArgs['id'];
       _categoryTitle = _routesArgs['title'];
-      _mealListByCategoryId = widget._displayedMeals.where((meal) {
+      _mealsByCategoryId = widget._displayedMeals.where((meal) {
         return meal.categories.contains(_categoryId);
       }).toList();
-      _initialDisplayedMealsLocker = true;
+      _showDisplayedMealsOnce = true;
     }
     super.didChangeDependencies();
   }
@@ -35,7 +35,7 @@ class _ScreenCategoryMealsState extends State<ScreenCategoryMeals> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(_categoryTitle)),
-      body: ListMeals(_mealListByCategoryId),
+      body: ListMeals(_mealsByCategoryId),
     );
   }
 }

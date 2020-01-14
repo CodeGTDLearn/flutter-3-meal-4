@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:meal_4/config/specs.dart';
 import 'package:meal_4/config/titles_icons.dart';
 
 import '../config/tabs.dart';
 import '../entity/meal.dart';
 
 class ScreenTabs extends StatefulWidget {
-  List<Meal> _favoriteMeals;
+  final List<Meal> _favoriteMeals;
 
   ScreenTabs(this._favoriteMeals);
 
@@ -14,9 +15,9 @@ class ScreenTabs extends StatefulWidget {
 }
 
 class _ScreenTabsState extends State<ScreenTabs> {
-  final Map<String, Object> titlesAndIcons = TitlesAndIcons().tabMenus;
+  final Map<String, Object> titlesIcons = TitlesAndIcons().tabs;
   List<Map<String, Object>> _tabPages;
-  int _selectedTabByIndex = 0;
+  int _tabIndex = 0;
 
   @override
   void initState() {
@@ -26,16 +27,17 @@ class _ScreenTabsState extends State<ScreenTabs> {
 
   void _selectTab(int newIndexTab) {
     setState(() {
-      this._selectedTabByIndex = newIndexTab;
+      this._tabIndex = newIndexTab;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final Specs dim = Specs(context);
     return Scaffold(
-      appBar: AppBar(title: Text(_tabPages[_selectedTabByIndex]['titlePage'])),
+      appBar: AppBar(title: Text(_tabPages[_tabIndex]['title'])),
       drawer: null,
-      body: _tabPages[_selectedTabByIndex]['page'],
+      body: _tabPages[_tabIndex]['page'],
 
       //BottonNavigatorTab
       bottomNavigationBar: BottomNavigationBar(
@@ -43,8 +45,8 @@ class _ScreenTabsState extends State<ScreenTabs> {
         backgroundColor: Theme.of(context).primaryColor,
         unselectedItemColor: Colors.white,
         selectedItemColor: Theme.of(context).accentColor,
-        currentIndex: _selectedTabByIndex,
-        selectedFontSize: 20,
+        currentIndex: _tabIndex,
+        selectedFontSize: dim.height(3),
 
         //detecta os 2 Tab Items, e alterna entre eles, automatic
         onTap: _selectTab,
@@ -52,12 +54,12 @@ class _ScreenTabsState extends State<ScreenTabs> {
         //barItems
         items: [
           BottomNavigationBarItem(
-              title: Text(titlesAndIcons['categoryTitle']),
-              icon: Icon(titlesAndIcons['categoryIcon']),
+              title: Text(titlesIcons['categoryTitle']),
+              icon: Icon(titlesIcons['categoryIcon']),
               backgroundColor: Theme.of(context).primaryColor),
           BottomNavigationBarItem(
-              title: Text(titlesAndIcons['favoriteTitle']),
-              icon: Icon(titlesAndIcons['categoryIcon']),
+              title: Text(titlesIcons['favoriteTitle']),
+              icon: Icon(titlesIcons['categoryIcon']),
               backgroundColor: Theme.of(context).primaryColor),
         ],
       ),
