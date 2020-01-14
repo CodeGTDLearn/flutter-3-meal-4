@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:meal_4/config/routes.dart';
+import 'package:meal_4/config/specs.dart';
 import 'package:meal_4/config/titles_icons.dart';
 import 'package:meal_4/enums/affordability.dart';
 import 'package:meal_4/enums/complexity.dart';
@@ -14,7 +16,8 @@ class CardMeal extends StatelessWidget {
   final Complexity complex;
   final Affordability afford;
 
-  final Map<String, Object> _icons = TitlesAndIcons().widgetMealIcons;
+  final Map<String, Object> _icons = TitlesAndIcons().cardMealIcons;
+  Specs _dim;
 
   CardMeal(
       {@required this.id,
@@ -26,66 +29,62 @@ class CardMeal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    _dim = Specs(context);
     return InkWell(
-      onTap: () => _goToScreenMealdetails(context),
-      child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        elevation: 4,
-        margin: EdgeInsets.all(10),
-        child: Column(
-          children: [
-            Stack(
-              children: [
+        onTap: () => _goToScreenMealdetails(context),
+        child: Card(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(_dim.radius(4))),
+            elevation: 4,
+            margin: EdgeInsets.all(_dim.width(4)),
+            child: Column(children: [
+              Stack(children: [
                 ClipRRect(
                     borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(15),
-                        topRight: Radius.circular(15)),
+                        topLeft: Radius.circular(_dim.radius(4)),
+                        topRight: Radius.circular(_dim.radius(4))),
                     child: Image.network(this.imageUrl,
-                        height: 250,
-                        width: double.infinity,
+                        height: _dim.height(40),
+                        width: _dim.width(100),
                         fit: BoxFit.cover)),
                 Positioned(
-                    bottom: 20,
-                    right: 10,
+                    bottom: 0,
+                    right: 0,
+                    left: 0,
                     child: Container(
-                        width: 300,
                         color: Colors.black45,
-                        padding:
-                            EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                        padding: EdgeInsets.all(_dim.height(1)),
                         child: Text(this.title,
                             style: TextStyle(
-                                fontSize: 26,
+                                fontSize: _dim.height(5),
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
                             softWrap: true,
                             overflow: TextOverflow.fade,
                             textAlign: TextAlign.center))),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  _buildRow(_icons['duration'], '$duration min'),
-                  _buildRow(_icons['complex'], describeEnum(this.complex)),
-                  _buildRow(_icons['afford'], describeEnum(this.afford)),
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
-    );
+              ]),
+              Padding(
+                  padding: EdgeInsets.all(_dim.height(3.5)),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        _row(_icons['duration'], '$duration min'),
+                        _row(_icons['complex'], describeEnum(this.complex)),
+                        _row(_icons['afford'], describeEnum(this.afford)),
+                      ]))
+            ])));
   }
 
-  Row _buildRow(IconData icon, String text) {
-    return Row(children: <Widget>[Icon(icon), SizedBox(width: 6), Text(text)]);
+  Row _row(IconData icon, String text) {
+    return Row(children: [
+      Icon(icon),
+      SizedBox(width: this._dim.height(2)),
+      Text(text, style: TextStyle(fontSize: this._dim.height(2.5)))
+    ]);
   }
 
   void _goToScreenMealdetails(BuildContext context) {
-    Navigator.of(context).pushNamed(Routes.toScreenMealsDetails, arguments: {
-      'id': this.id,
-    });
+    Navigator.of(context)
+        .pushNamed(Routes.toScreenMealsDetails, arguments: {'id': this.id});
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meal_4/entity/meal.dart';
 import 'package:meal_4/screens/category_meals.dart';
+import 'package:meal_4/screens/meals_details.dart';
 import 'package:meal_4/screens/tabs.dart';
 
 class Routes {
@@ -18,7 +19,7 @@ class Routes {
     return {
       _tabs: (context) => ScreenTabs(this._favoriteMeals),
       _categoryMeals: (context) => ScreenCategoryMeals(this._displayedMeals),
-      //_toScreenMealsDetails: (context) => ScreenMealsDetails(),
+      _mealsDetails: (context) => MealsDetails(),
     };
   }
 
