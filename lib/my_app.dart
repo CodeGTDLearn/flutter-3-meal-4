@@ -32,20 +32,20 @@ class _MyAppState extends State<MyApp> {
 //		});
 //	}
 
-	void toggleFavorite(String mealId){
-		final mealIndexInFavoriteMeals =
-		this._favoriteMeals.lastIndexWhere((meal)=> meal.id == mealId);
-
-		if (mealIndexInFavoriteMeals >= 0) {
-			this._favoriteMeals.removeAt(mealIndexInFavoriteMeals);
-		} else if (mealIndexInFavoriteMeals == -1) {
-			this._favoriteMeals.add(DB_MEALS.firstWhere((meal)=> meal.id == mealId));
-		}
-	}
-
-	bool isMealFavorite(String mealId){
-		return _favoriteMeals.any((meal)=> meal.id == mealId);
-	}
+//	void toggleFavorite(String mealId){
+//		final mealIndexInFavoriteMeals =
+//		this._favoriteMeals.lastIndexWhere((meal)=> meal.id == mealId);
+//
+//		if (mealIndexInFavoriteMeals >= 0) {
+//			this._favoriteMeals.removeAt(mealIndexInFavoriteMeals);
+//		} else if (mealIndexInFavoriteMeals == -1) {
+//			this._favoriteMeals.add(DB_MEALS.firstWhere((meal)=> meal.id == mealId));
+//		}
+//	}
+//
+//	bool isMealFavorite(String mealId){
+//		return _favoriteMeals.any((meal)=> meal.id == mealId);
+//	}
 
 	@override
 	Widget build(BuildContext context){
