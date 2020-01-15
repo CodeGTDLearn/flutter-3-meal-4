@@ -1,13 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:meal_4/config/specs.dart';
-import 'package:meal_4/config/titles_icons.dart';
-import 'package:meal_4/data/categories.dart';
-import 'package:meal_4/widget/card_category.dart';
+
+import '../config/specs.dart';
+import '../config/titles_icons.dart';
+import '../data/categories.dart';
+import '../widget/card_category.dart';
 
 class ScreenCategoryMenu extends StatelessWidget {
   static Map<String, Object> titles = TitlesAndIcons().tabs;
-
 
   @override
   Widget build(BuildContext context) {

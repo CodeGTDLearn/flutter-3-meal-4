@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:meal_4/entity/meal.dart';
-import 'package:meal_4/screens/category_meals.dart';
-import 'package:meal_4/screens/meals_details.dart';
-import 'package:meal_4/screens/tabs.dart';
+
+import '../entity/meal.dart';
+import '../screens/category_meals.dart';
+import '../screens/meals_details.dart';
+import '../screens/tabs.dart';
 
 class Routes {
   //type here your routes

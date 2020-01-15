@@ -1,6 +1,6 @@
-import 'package:meal_4/config/filters.dart';
-import 'package:meal_4/data/meals.dart';
-import 'package:meal_4/entity/meal.dart';
+import '../config/filters.dart';
+import '../data/meals.dart';
+import '../entity/meal.dart';
 
 class FiltersManagement {
   //SINGLETON STRUCTURE

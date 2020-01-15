@@ -1,12 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:meal_4/config/routes.dart';
-import 'package:meal_4/config/specs.dart';
-import 'package:meal_4/config/titles_icons.dart';
-import 'package:meal_4/enums/affordability.dart';
-import 'package:meal_4/enums/complexity.dart';
+import '../config/routes.dart';
+import '../config/specs.dart';
+import '../config/titles_icons.dart';
+import '../enums/affordability.dart';
+import '../enums/complexity.dart';
 
 class CardMeal extends StatelessWidget {
   final String id;

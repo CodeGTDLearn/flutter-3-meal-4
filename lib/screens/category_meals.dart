@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:meal_4/entity/meal.dart';
-import 'package:meal_4/widget/list_meals.dart';
+
+import '../entity/meal.dart';
+import '../widget/list_meals.dart';
 
 class ScreenCategoryMeals extends StatefulWidget {
   final List<Meal> _displayedMeals;

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
+import './config/routes.dart';
+import './config/themes.dart';
 import './data/meals.dart';
 import './entity/meal.dart';
-import 'config/routes.dart';
-import 'config/themes.dart';
 
 class MyApp extends StatefulWidget {
   @override

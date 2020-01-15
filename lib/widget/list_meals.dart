@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:meal_4/entity/meal.dart';
-import 'package:meal_4/widget/card_meal.dart';
+
+import '../entity/meal.dart';
+import '../widget/card_meal.dart';
 
 class ListMeals extends StatefulWidget {
   final List<Meal> _meals;

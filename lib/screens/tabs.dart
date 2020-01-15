@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:meal_4/config/specs.dart';
-import 'package:meal_4/config/titles_icons.dart';
 
+import '../config/specs.dart';
 import '../config/tabs.dart';
+import '../config/titles_icons.dart';
 
 class ScreenTabs extends StatefulWidget {
   @override

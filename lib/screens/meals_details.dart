@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:meal_4/config/specs.dart';
-import 'package:meal_4/config/titles_icons.dart';
-import 'package:meal_4/data/favoriteMeals.dart';
-import 'package:meal_4/data/meals.dart';
-import 'package:meal_4/entity/meal.dart';
+
+import '../config/specs.dart';
+import '../config/titles_icons.dart';
+import '../data/favoriteMeals.dart';
+import '../data/meals.dart';
+import '../entity/meal.dart';
 
 class MealsDetails extends StatefulWidget {
   @override
