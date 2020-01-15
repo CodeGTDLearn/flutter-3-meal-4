@@ -14,15 +14,11 @@ class ScreenFavorites extends StatelessWidget {
     Specs _dim = Specs(context);
     if (this._favoriteMeals.isEmpty) {
       return Container(
-        child: Center(
-            child: Text(
-          'There is no meals as favorites.',
-          style: TextStyle(fontSize: _dim.height(5)),
-              textAlign: TextAlign.center,
-        )),
-      );
-    } else {
-      return ListMeals(_favoriteMeals);
+          child: Center(
+              child: Text('There is no meals as favorites.',
+                  style: TextStyle(fontSize: _dim.height(5)),
+                  textAlign: TextAlign.center)));
     }
+    return ListMeals(_favoriteMeals);
   }
 }
