@@ -10,14 +10,13 @@ class Routes {
   static final String _categoryMeals = "/category-meals";
   static final String _mealsDetails = "/meal-details";
 
-  final List<Meal> _favoriteMeals;
   final List<Meal> _displayedMeals;
 
-  Routes(this._favoriteMeals, this._displayedMeals);
+  Routes(this._displayedMeals);
 
   Map<String, WidgetBuilder> toScreens() {
     return {
-      _tabs: (context) => ScreenTabs(this._favoriteMeals),
+      _tabs: (context) => ScreenTabs(),
       _categoryMeals: (context) => ScreenCategoryMeals(this._displayedMeals),
       _mealsDetails: (context) => MealsDetails(),
     };

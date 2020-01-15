@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meal_4/config/specs.dart';
+import 'package:meal_4/data/favoriteMeals.dart';
 import 'package:meal_4/entity/meal.dart';
 import 'package:meal_4/widget/list_meals.dart';
 
 class ScreenFavorites extends StatelessWidget {
-  final List<Meal> _favoriteMeals;
-
-  ScreenFavorites(this._favoriteMeals);
+  final List<Meal> _favoriteMeals = DB_FAV_MEALS;
 
   @override
   Widget build(BuildContext context) {

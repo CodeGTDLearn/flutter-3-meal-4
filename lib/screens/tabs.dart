@@ -3,13 +3,8 @@ import 'package:meal_4/config/specs.dart';
 import 'package:meal_4/config/titles_icons.dart';
 
 import '../config/tabs.dart';
-import '../entity/meal.dart';
 
 class ScreenTabs extends StatefulWidget {
-  final List<Meal> _favoriteMeals;
-
-  ScreenTabs(this._favoriteMeals);
-
   @override
   _ScreenTabsState createState() => _ScreenTabsState();
 }
@@ -21,7 +16,7 @@ class _ScreenTabsState extends State<ScreenTabs> {
 
   @override
   void initState() {
-    _tabPages = TabPages(widget._favoriteMeals).getTabPages;
+    _tabPages = TabPages().getTabPages;
     super.initState();
   }
 

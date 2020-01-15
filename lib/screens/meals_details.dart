@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:meal_4/config/specs.dart';
 import 'package:meal_4/config/titles_icons.dart';
+import 'package:meal_4/data/favoriteMeals.dart';
 import 'package:meal_4/data/meals.dart';
+import 'package:meal_4/entity/meal.dart';
 
-class MealsDetails extends StatelessWidget {
+class MealsDetails extends StatefulWidget {
+  @override
+  _MealsDetailsState createState() => _MealsDetailsState();
+}
+
+class _MealsDetailsState extends State<MealsDetails> {
+  List<Meal> _favoriteMeals = DB_FAV_MEALS;
   Specs _dim;
 
   @override
@@ -30,8 +38,10 @@ class MealsDetails extends StatelessWidget {
                   bottom: _dim.height(2),
                   right: _dim.width(3),
                   child: FloatingActionButton(
-                    child: Icon(_titlesIcons['favorite']),
-                    onPressed: null,
+                    child: Icon(isMealFavorite(_mealId)
+                        ? _titlesIcons['favorite']
+                        : _titlesIcons['unFavorite']),
+                    onPressed: () => toggleFavorite(_mealId),
                   ),
                 )
               ],
@@ -106,19 +116,25 @@ class MealsDetails extends StatelessWidget {
         width: _dim.width(100),
         child: child);
   }
-}
 
-//void toggleFavorite(String mealId){
-//	final mealIndexInFavoriteMeals =
-//	this._favoriteMeals.lastIndexWhere((meal)=> meal.id == mealId);
-//
-//	if (mealIndexInFavoriteMeals >= 0) {
-//		this._favoriteMeals.removeAt(mealIndexInFavoriteMeals);
-//	} else if (mealIndexInFavoriteMeals == -1) {
-//		this._favoriteMeals.add(DB_MEALS.firstWhere((meal)=> meal.id == mealId));
-//	}
-//}
-//
-//bool isMealFavorite(String mealId){
-//	return _favoriteMeals.any((meal)=> meal.id == mealId);
-//}
+  bool isMealFavorite(String mealId) {
+    return _favoriteMeals.any((meal) => meal.id == mealId);
+  }
+
+  void toggleFavorite(String mealId) {
+    final mealIndexInFavoriteMeals =
+        this._favoriteMeals.lastIndexWhere((meal) => meal.id == mealId);
+
+    if (mealIndexInFavoriteMeals >= 0) {
+      setState(() {
+        this._favoriteMeals.removeAt(mealIndexInFavoriteMeals);
+      });
+    } else if (mealIndexInFavoriteMeals == -1) {
+      setState(() {
+        this
+            ._favoriteMeals
+            .add(DB_MEALS.firstWhere((meal) => meal.id == mealId));
+      });
+    }
+  }
+}
