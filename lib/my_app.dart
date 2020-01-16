@@ -36,11 +36,15 @@ class _MyAppState extends State<MyApp> {
       title: 'Meals 04',
       debugShowCheckedModeBanner: false,
       theme: AppTheme().themeData,
-      routes: Routes(_displayedMeals).toScreens(),
-//			routes: Routes(_favoriteMeals,_displayedMeals).toScreens(),
-//			onGenerateRoute: (settings){
-//				return MaterialPageRoute(builder: (ctx)=> ScreenTabs(_favoriteMeals));
-//			},
+      initialRoute: Routes.toViewTabs,
+      routes: Routes(_displayedMeals).toViews(),
     );
   }
 }
+//      onGenerateRoute: (settings) {
+//        return MaterialPageRoute(
+//            builder: (ctx) => ViewCategoryMeals(_displayedMeals));
+//      }
+//      onUnknownRoute: (settings) {
+//        return MaterialPageRoute(builder: (ctx) => ViewTabs());
+//      },

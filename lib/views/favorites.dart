@@ -5,7 +5,7 @@ import '../data/favoriteMeals.dart';
 import '../entity/meal.dart';
 import '../widget/list_meals.dart';
 
-class ScreenFavorites extends StatelessWidget {
+class ViewFavorites extends StatelessWidget {
   final List<Meal> _favoriteMeals = db_fav_meals;
 
   @override

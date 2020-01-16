@@ -5,7 +5,7 @@ import '../config/titles_icons.dart';
 import '../data/categories.dart';
 import '../widget/card_category.dart';
 
-class ScreenCategoryMenu extends StatelessWidget {
+class ViewCategoryMenu extends StatelessWidget {
   static Map<String, Object> titles = TitlesAndIcons().tabs;
 
   @override

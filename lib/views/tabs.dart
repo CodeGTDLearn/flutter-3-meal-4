@@ -14,6 +14,7 @@ class _ViewTabsState extends State<ViewTabs> {
   final Map<String, Object> titlesIcons = TitlesAndIcons().tabs;
   List<Map<String, Object>> _tabPages;
   int _tabIndex = 0;
+  Specs _dim;
 
   @override
   void initState() {
@@ -29,11 +30,11 @@ class _ViewTabsState extends State<ViewTabs> {
 
   @override
   Widget build(BuildContext context) {
-    final Specs dim = Specs(context);
+    _dim = Specs(context);
     return Scaffold(
       appBar: AppBar(
           title: Text(_tabPages[_tabIndex]['title'],
-              style: TextStyle(fontSize: dim.height(4.5)))),
+              style: TextStyle(fontSize: _dim.height(4.5)))),
 
       drawer: Drawwer(),
 
@@ -47,8 +48,8 @@ class _ViewTabsState extends State<ViewTabs> {
         unselectedItemColor: Colors.white,
         selectedItemColor: Theme.of(context).accentColor,
         currentIndex: _tabIndex,
-        selectedFontSize: dim.height(3),
-        unselectedFontSize: dim.height(2.5),
+        selectedFontSize: _dim.height(3),
+        unselectedFontSize: _dim.height(2.5),
 
         //detecta os 2 Tab Items, e alterna entre eles, automatic
         onTap: _selectTab,

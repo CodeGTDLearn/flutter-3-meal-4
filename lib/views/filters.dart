@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:meal_4/widget/drawer.dart';
 
-class Filters extends StatefulWidget {
+class ViewFilters extends StatefulWidget {
+  ViewFilters();
+
   @override
-  _FiltersState createState() => _FiltersState();
+  _ViewFiltersState createState() => _ViewFiltersState();
 }
 
-class _FiltersState extends State<Filters> {
+class _ViewFiltersState extends State<ViewFilters> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(title: Text('TESTE')),
+      drawer: Drawwer(),
+      body: Container(
+        child: Text('filterView'),
+      ),
+    );
   }
 }

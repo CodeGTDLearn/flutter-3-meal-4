@@ -83,7 +83,13 @@ class CardMeal extends StatelessWidget {
   }
 
   void _goToScreenMealdetails(BuildContext context) {
-    Navigator.of(context)
-        .pushNamed(Routes.toScreenMealsDetails, arguments: {'id': this.id});
+    Navigator.of(context).pushNamed(Routes.toViewMealsDetails, arguments: {
+      'id': this.id,
+    }).then((returnFromScreenMealDetailsDeleteButton) => {
+          if (returnFromScreenMealDetailsDeleteButton != null)
+            {
+              //removeMeal(returnFromScreenMealDetailsDeleteButton)});
+            }
+        });
   }
 }

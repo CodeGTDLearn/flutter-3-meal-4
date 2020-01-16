@@ -33,7 +33,7 @@ class CardCategory extends StatelessWidget {
   }
 
   void goToScreenCategoryMeals(BuildContext context) {
-    Navigator.of(context).pushNamed(Routes.toScreenCategoryMeals,
+    Navigator.of(context).pushNamed(Routes.toViewCategoryMeals,
         arguments: {'id': this._id, 'title': this._title});
   }
 }

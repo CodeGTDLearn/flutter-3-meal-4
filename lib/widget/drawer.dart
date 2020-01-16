@@ -17,7 +17,7 @@ class Drawwer extends StatelessWidget {
           title: Text(title,
               style: TextStyle(
                   fontSize: _dim.height(5), fontWeight: FontWeight.bold)),
-          onTap: () => Navigator.of(context).pushReplacementNamed(route));
+          onTap: () => Navigator.of(context).popAndPushNamed(route));
     }
 
     return Drawer(
@@ -34,9 +34,9 @@ class Drawwer extends StatelessWidget {
           ),
           SizedBox(height: _dim.height(3)),
           _listTile(_titlesIcons['mealsTitle'], _titlesIcons['mealsIcon'],
-              Routes.toScreenTabs),
+              Routes.toViewTabs),
           _listTile(_titlesIcons['settingsTitle'], _titlesIcons['settingsIcon'],
-              Routes.toScreenFilters)
+              Routes.toViewFilters)
         ]));
   }
 }

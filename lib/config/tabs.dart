@@ -7,11 +7,8 @@ class TabPages {
 
   List<Map<String, Object>> get getTabPages {
     return [
-      {
-        'page': ScreenCategoryMenu(),
-        'title': titles['categoryTitle'],
-      },
-      {'page': ScreenFavorites(), 'title': titles['favoriteTitle']}
+      {'page': ViewCategoryMenu(), 'title': titles['categoryTitle']},
+      {'page': ViewFavorites(), 'title': titles['favoriteTitle']}
     ];
   }
 }
