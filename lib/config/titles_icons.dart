@@ -9,6 +9,7 @@ class TitlesAndIcons {
   };
 
   final Map<String, Object> _drawers = {
+    'title': "Cooking up!!",
     'mealsTitle': "Meals",
     'mealsIcon': Icons.restaurant,
     'settingsTitle': "Settings",

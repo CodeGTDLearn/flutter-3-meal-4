@@ -6,7 +6,7 @@ import '../entity/meal.dart';
 import '../widget/list_meals.dart';
 
 class ScreenFavorites extends StatelessWidget {
-  final List<Meal> _favoriteMeals = DB_FAV_MEALS;
+  final List<Meal> _favoriteMeals = db_fav_meals;
 
   @override
   Widget build(BuildContext context) {

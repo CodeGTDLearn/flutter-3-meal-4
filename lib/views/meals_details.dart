@@ -6,13 +6,13 @@ import '../data/favoriteMeals.dart';
 import '../data/meals.dart';
 import '../entity/meal.dart';
 
-class MealsDetails extends StatefulWidget {
+class ViewMealsDetails extends StatefulWidget {
   @override
-  _MealsDetailsState createState() => _MealsDetailsState();
+  _ViewMealsDetailsState createState() => _ViewMealsDetailsState();
 }
 
-class _MealsDetailsState extends State<MealsDetails> {
-  List<Meal> _favoriteMeals = DB_FAV_MEALS;
+class _ViewMealsDetailsState extends State<ViewMealsDetails> {
+  List<Meal> _favoriteMeals = db_fav_meals;
   Specs _dim;
 
   @override

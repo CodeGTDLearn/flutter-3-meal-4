@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
 import '../entity/meal.dart';
-import '../screens/category_meals.dart';
-import '../screens/meals_details.dart';
-import '../screens/tabs.dart';
+import '../views/category_meals.dart';
+import '../views/meals_details.dart';
+import '../views/tabs.dart';
 
 class Routes {
   //type here your routes
   static final String _tabs = "/";
   static final String _categoryMeals = "/category-meals";
   static final String _mealsDetails = "/meal-details";
+  static final String _filters = "/meal-filters";
 
   final List<Meal> _displayedMeals;
 
@@ -17,9 +18,10 @@ class Routes {
 
   Map<String, WidgetBuilder> toScreens() {
     return {
-      _tabs: (context) => ScreenTabs(),
-      _categoryMeals: (context) => ScreenCategoryMeals(this._displayedMeals),
-      _mealsDetails: (context) => MealsDetails(),
+      _tabs: (context) => ViewTabs(),
+      _categoryMeals: (context) => ViewCategoryMeals(this._displayedMeals),
+      _mealsDetails: (context) => ViewMealsDetails(),
+      _filters: (context) => ViewMealsDetails(),
     };
   }
 
@@ -28,4 +30,6 @@ class Routes {
   static String get toScreenCategoryMeals => _categoryMeals;
 
   static String get toScreenMealsDetails => _mealsDetails;
+
+  static String get toScreenFilters => _filters;
 }

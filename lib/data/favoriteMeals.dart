@@ -1,3 +1,3 @@
 import '../entity/meal.dart';
 
-List<Meal> DB_FAV_MEALS = [];
+List<Meal> db_fav_meals = [];

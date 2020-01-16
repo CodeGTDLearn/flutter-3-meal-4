@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import '../entity/meal.dart';
 import '../widget/list_meals.dart';
 
-class ScreenCategoryMeals extends StatefulWidget {
+class ViewCategoryMeals extends StatefulWidget {
   final List<Meal> _displayedMeals;
 
-  ScreenCategoryMeals(this._displayedMeals);
+  ViewCategoryMeals(this._displayedMeals);
 
   @override
-  _ScreenCategoryMealsState createState() => _ScreenCategoryMealsState();
+  _ViewCategoryMealsState createState() => _ViewCategoryMealsState();
 }
 
-class _ScreenCategoryMealsState extends State<ScreenCategoryMeals> {
+class _ViewCategoryMealsState extends State<ViewCategoryMeals> {
   var _showDisplayedMealsOnce = false;
   List<Meal> _mealsByCategoryId;
   String _categoryTitle;

@@ -1,6 +1,6 @@
 import '../config/titles_icons.dart';
-import '../screens/category_menu.dart';
-import '../screens/favorites.dart';
+import '../views/category_menu.dart';
+import '../views/favorites.dart';
 
 class TabPages {
   static Map<String, Object> titles = TitlesAndIcons().tabs;

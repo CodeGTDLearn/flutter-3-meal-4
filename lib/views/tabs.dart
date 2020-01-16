@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:meal_4/widget/drawer.dart';
 
 import '../config/specs.dart';
 import '../config/tabs.dart';
 import '../config/titles_icons.dart';
 
-class ScreenTabs extends StatefulWidget {
+class ViewTabs extends StatefulWidget {
   @override
-  _ScreenTabsState createState() => _ScreenTabsState();
+  _ViewTabsState createState() => _ViewTabsState();
 }
 
-class _ScreenTabsState extends State<ScreenTabs> {
+class _ViewTabsState extends State<ViewTabs> {
   final Map<String, Object> titlesIcons = TitlesAndIcons().tabs;
   List<Map<String, Object>> _tabPages;
   int _tabIndex = 0;
@@ -31,11 +32,12 @@ class _ScreenTabsState extends State<ScreenTabs> {
     final Specs dim = Specs(context);
     return Scaffold(
       appBar: AppBar(
-          title: Text(
-        _tabPages[_tabIndex]['title'],
-        style: TextStyle(fontSize: dim.height(4.5)),
-      )),
-      drawer: null,
+          title: Text(_tabPages[_tabIndex]['title'],
+              style: TextStyle(fontSize: dim.height(4.5)))),
+
+      drawer: Drawwer(),
+
+      //direciona para page, conforme o _tabIndex
       body: _tabPages[_tabIndex]['page'],
 
       //BottonNavigatorTab
