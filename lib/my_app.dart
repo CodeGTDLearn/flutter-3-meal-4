@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_4/data/filters.dart';
 
 import './config/routes.dart';
 import './config/themes.dart';
@@ -11,24 +12,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-//	Map<String, bool> _myAppFilters = FILTERS;
   List<Meal> _displayedMeals = DB_MEALS;
+  Map<String, bool> _myAppFilters = DB_FILTERS;
 
-//	void _myAppUpdateFilter(Map<String, bool> _updatedFilters){
-//		setState((){
-//			this._myAppFilters = _updatedFilters;
-//			this._displayedMeals = DB_MEALS.where((meal){
-//				if (this._myAppFilters['isGlutenFree'] && !meal.isGlutenFree)
-//					return false;
-//				if (this._myAppFilters['isLactoseFree'] && !meal.isLactoseFree)
-//					return false;
-//				if (this._myAppFilters['isVegan'] && !meal.isVegan) return false;
-//				if (this._myAppFilters['isVegetarian'] && !meal.isVegetarian)
-//					return false;
-//				return true;
-//			}).toList();
-//		});
-//	}
+  void _mealsFiltered(
+      List<Meal> mealsAfterFiltering, Map<String, bool> filtersSelected) {
+    this._displayedMeals = mealsAfterFiltering;
+    this._myAppFilters = filtersSelected;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,14 +28,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       theme: AppTheme().themeData,
       initialRoute: Routes.toViewTabs,
-      routes: Routes(_displayedMeals).toViews(),
+      routes: Routes(_displayedMeals, _mealsFiltered, _myAppFilters).toViews(),
     );
   }
 }
-//      onGenerateRoute: (settings) {
-//        return MaterialPageRoute(
-//            builder: (ctx) => ViewCategoryMeals(_displayedMeals));
-//      }
-//      onUnknownRoute: (settings) {
-//        return MaterialPageRoute(builder: (ctx) => ViewTabs());
-//      },

@@ -29,6 +29,19 @@ class TitlesAndIcons {
     'afford': Icons.attach_money,
   };
 
+  final Map<String, Object> _filters = {
+    'AppbarTitle': 'Filters',
+    'pageTitle': 'Filter your meal preferences',
+    'glutTitle': 'Glutten Free',
+    'glutSubtitle': 'Show only glutten free meals',
+    'lactTitle': 'Lactose Free',
+    'lactSubtitle': 'Show only lactose free meals',
+    'vegeTitle': 'Vegetarian',
+    'vegeSubtitle': 'Show only vegetarian meals',
+    'veganTitle': 'Vegan',
+    'veganSubtitle': 'Show only vegan meals',
+  };
+
   Map<String, Object> get tabs => _tabs;
 
   Map<String, Object> get drawer => _drawers;
@@ -36,4 +49,6 @@ class TitlesAndIcons {
   Map<String, Object> get mealDetails => _mealDetails;
 
   Map<String, Object> get cardMealIcons => _cardMealIcons;
+
+  Map<String, Object> get filters => _filters;
 }

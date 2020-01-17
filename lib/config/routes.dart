@@ -14,15 +14,17 @@ class Routes {
   static final String _filters = '/filters';
 
   final List<Meal> _displayedMeals;
+  final Function _mealsFiltered;
+  final Map<String, bool> _myAppFilters;
 
-  Routes(this._displayedMeals);
+  Routes(this._displayedMeals, this._mealsFiltered, this._myAppFilters);
 
   Map<String, WidgetBuilder> toViews() {
     return {
       _tabs: (context) => ViewTabs(),
       _categoryMeals: (context) => ViewCategoryMeals(this._displayedMeals),
       _mealsDetails: (context) => ViewMealsDetails(),
-      _filters: (context) => ViewFilters(),
+      _filters: (context) => ViewFilters(_mealsFiltered, _myAppFilters),
     };
   }
 
