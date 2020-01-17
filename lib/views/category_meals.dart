@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:meal_4/data/mealsFiltered.dart';
 
 import '../entity/meal.dart';
 import '../widget/list_meals.dart';
 
 class ViewCategoryMeals extends StatefulWidget {
-  final List<Meal> _displayedMeals;
-
-  ViewCategoryMeals(this._displayedMeals);
+  final List<Meal> _displayedMeals = db_filter_meals;
+//  final List<Meal> _displayedMeals;
+//
+//  ViewCategoryMeals(this._displayedMeals);
 
   @override
   _ViewCategoryMealsState createState() => _ViewCategoryMealsState();

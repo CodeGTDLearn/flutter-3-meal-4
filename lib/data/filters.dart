@@ -1,6 +1,6 @@
-const Map<String, bool> DB_FILTERS = const {
-	'isGlutenFree': false,
-	'isLactoseFree': false,
-	'isVegan': false,
-	'isVegetarian': false,
+Map<String, bool> DB_FILTERS = {
+  'isGlutenFree': false,
+  'isLactoseFree': false,
+  'isVegan': false,
+  'isVegetarian': false,
 };
