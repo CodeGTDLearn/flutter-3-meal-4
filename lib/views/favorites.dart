@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../config/specs.dart';
 import '../data/favoriteMeals.dart';
 import '../entity/meal.dart';
+import '../utils/specs.dart';
 import '../widget/list_meals.dart';
 
 class ViewFavorites extends StatelessWidget {

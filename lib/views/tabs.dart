@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:meal_4/widget/drawer.dart';
 
-import '../config/specs.dart';
 import '../config/tabs.dart';
 import '../config/titles_icons.dart';
+import '../utils/specs.dart';
 
 class ViewTabs extends StatefulWidget {
   @override

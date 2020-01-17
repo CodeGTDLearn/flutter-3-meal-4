@@ -2,10 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../config/routes.dart';
-import '../config/specs.dart';
 import '../config/titles_icons.dart';
 import '../enums/affordability.dart';
 import '../enums/complexity.dart';
+import '../utils/specs.dart';
 
 class CardMeal extends StatelessWidget {
   final String id;

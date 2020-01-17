@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../config/specs.dart';
 import '../config/titles_icons.dart';
 import '../data/categories.dart';
+import '../utils/specs.dart';
 import '../widget/card_category.dart';
 
 class ViewCategoryMenu extends StatelessWidget {

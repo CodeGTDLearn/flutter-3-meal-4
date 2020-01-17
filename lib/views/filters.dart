@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:meal_4/config/specs.dart';
-import 'package:meal_4/config/titles_icons.dart';
-import 'package:meal_4/data/filters.dart';
-import 'package:meal_4/data/meals.dart';
-import 'package:meal_4/data/mealsFiltered.dart';
-import 'package:meal_4/entity/meal.dart';
-import 'package:meal_4/widget/drawer.dart';
+
+import '../config/titles_icons.dart';
+import '../data/filters.dart';
+import '../utils/filter_utils.dart';
+import '../utils/specs.dart';
+import '../widget/drawer.dart';
 
 class ViewFilters extends StatefulWidget {
   Map<String, bool> _myAppFilters = DB_FILTERS;
@@ -16,16 +15,13 @@ class ViewFilters extends StatefulWidget {
 
 class _ViewFiltersState extends State<ViewFilters> {
   final Map<String, Object> _titles = TitlesAndIcons().filters;
-  bool _isGlutenFree, _isVegetarian, _isVegan, _isLactoseFree;
+  bool _noGluten, _isVegetarian, _isVegan, _noLactose;
   Specs _dim;
-
-  List<Meal> _mealsAfterFiltering;
-  Map<String, bool> _filterMeals;
 
   @override
   void initState() {
-    _isGlutenFree = widget._myAppFilters['isGlutenFree'];
-    _isLactoseFree = widget._myAppFilters['isLactoseFree'];
+    _noGluten = widget._myAppFilters['isGlutenFree'];
+    _noLactose = widget._myAppFilters['isLactoseFree'];
     _isVegetarian = widget._myAppFilters['isVegetarian'];
     _isVegan = widget._myAppFilters['isVegan'];
     super.initState();
@@ -34,7 +30,7 @@ class _ViewFiltersState extends State<ViewFilters> {
   @override
   Widget build(BuildContext context) {
     _dim = Specs(context);
-
+    FilterUtils _filter = FilterUtils();
     return Scaffold(
         appBar: AppBar(title: Text(_titles['AppbarTitle'])),
         drawer: Drawwer(),
@@ -47,25 +43,27 @@ class _ViewFiltersState extends State<ViewFilters> {
                       textAlign: TextAlign.center))),
           Expanded(
               child: ListView(children: [
-            _switch(_titles['glutTitle'], _titles['glutSubtitle'],
-                this._isGlutenFree, (newValueSwitch) {
+            _switch(
+                _titles['glutTitle'], _titles['glutSubtitle'], this._noGluten,
+                (newValueSwitch) {
               setState(() {
-                this._isGlutenFree = newValueSwitch;
-                _filterActuator();
+                this._noGluten = newValueSwitch;
+                _filter.updater(_noGluten, _noLactose, _isVegan, _isVegetarian);
               });
             }),
-            _switch(_titles['lactTitle'], _titles['lactSubtitle'],
-                this._isLactoseFree, (newValueSwitch) {
+            _switch(
+                _titles['lactTitle'], _titles['lactSubtitle'], this._noLactose,
+                (newValueSwitch) {
               setState(() {
-                this._isLactoseFree = newValueSwitch;
-                _filterActuator();
+                this._noLactose = newValueSwitch;
+                _filter.updater(_noGluten, _noLactose, _isVegan, _isVegetarian);
               });
             }),
             _switch(_titles['vegeTitle'], _titles['vegeSubtitle'],
                 this._isVegetarian, (newValueSwitch) {
               setState(() {
                 this._isVegetarian = newValueSwitch;
-                _filterActuator();
+                _filter.updater(_noGluten, _noLactose, _isVegan, _isVegetarian);
               });
             }),
             _switch(
@@ -73,7 +71,7 @@ class _ViewFiltersState extends State<ViewFilters> {
                 (newValueSwitch) {
               setState(() {
                 this._isVegan = newValueSwitch;
-                _filterActuator();
+                _filter.updater(_noGluten, _noLactose, _isVegan, _isVegetarian);
               });
             })
           ]))
@@ -88,28 +86,5 @@ class _ViewFiltersState extends State<ViewFilters> {
       value: currentValueSwitch,
       onChanged: function,
     );
-  }
-
-  void _filterActuator() {
-    _filterMeals = {
-      'isGlutenFree': _isGlutenFree,
-      'isLactoseFree': _isLactoseFree,
-      'isVegan': _isVegan,
-      'isVegetarian': _isVegetarian
-    };
-
-    DB_FILTERS = _filterMeals;
-
-    setState(() {
-      _mealsAfterFiltering = DB_MEALS.where((meal) {
-        if (_filterMeals['isGlutenFree'] && !meal.isGlutenFree) return false;
-        if (_filterMeals['isLactoseFree'] && !meal.isLactoseFree) return false;
-        if (_filterMeals['isVegan'] && !meal.isVegan) return false;
-        if (_filterMeals['isVegetarian'] && !meal.isVegetarian) return false;
-        return true;
-      }).toList();
-    });
-
-    db_filter_meals = _mealsAfterFiltering;
   }
 }

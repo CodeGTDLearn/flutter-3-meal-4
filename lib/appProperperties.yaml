@@ -1,0 +1,7 @@
+#App General Configuration
+
+#1-View's routes in the App:
+  tabs: /
+  categoryMeals: /category-meals
+  mealsDetails: /meal-details
+  filters: /filters

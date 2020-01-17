@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meal_4/config/routes.dart';
-import 'package:meal_4/config/specs.dart';
 import 'package:meal_4/config/titles_icons.dart';
+import 'package:meal_4/utils/specs.dart';
 
 class Drawwer extends StatelessWidget {
   final Map<String, Object> _titlesIcons = TitlesAndIcons().drawer;

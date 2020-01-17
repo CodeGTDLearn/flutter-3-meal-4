@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../config/routes.dart';
-import '../config/specs.dart';
+import '../utils/specs.dart';
 
 class CardCategory extends StatelessWidget {
   final String _id;
