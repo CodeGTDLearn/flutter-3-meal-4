@@ -83,7 +83,7 @@ class CardMeal extends StatelessWidget {
   }
 
   void _goToScreenMealdetails(BuildContext context) {
-    Navigator.of(context).pushNamed(Routes.toViewMealsDetails, arguments: {
+    Navigator.of(context).pushNamed(Routes.viewMealsDetails, arguments: {
       'id': this.id,
     }).then((returnFromScreenMealDetailsDeleteButton) => {
           if (returnFromScreenMealDetailsDeleteButton != null)

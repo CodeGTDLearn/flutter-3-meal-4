@@ -34,9 +34,9 @@ class Drawwer extends StatelessWidget {
           ),
           SizedBox(height: _dim.height(3)),
           _listTile(_titlesIcons['mealsTitle'], _titlesIcons['mealsIcon'],
-              Routes.toViewTabs),
+              Routes.viewTabs),
           _listTile(_titlesIcons['settingsTitle'], _titlesIcons['settingsIcon'],
-              Routes.toViewFilters)
+              Routes.viewFilters)
         ]));
   }
 }
