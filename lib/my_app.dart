@@ -15,7 +15,6 @@ class _MyAppState extends State<MyApp> {
         title: 'Meals 04',
         debugShowCheckedModeBanner: false,
         theme: AppTheme().themeData,
-        //initialRoute: Routes.toViewTabs,
         routes: Routes().toViews());
   }
 }
