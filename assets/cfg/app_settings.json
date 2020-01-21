@@ -1,15 +1,15 @@
 {
-  "_VIEWS APP": "TYPE HERE YOUR APP'S ROUTES",
+  "_VIEWS APP": "APP'S ROUTES",
   "tabs": "/",
   "categoryMeals": "/category-meals",
   "mealsDetails": "/meal-details",
   "filters": "/filters",
-
-  "_VIEWS APP": "TYPE HERE YOUR APP'S ROUTES",
-"categoryTitle": "Categories",
-"categoryIcon": Icons.category,
-"favoriteTitle": "Favorites",
-"favoriteIcon": Icons.favorite
+  "-------": "--------------------------------------------------------",
+  "_TABS APP": "TAB'S TEXTS AND ICONS",
+  "categoryTitle": "Categories",
+  "categoryIcon": "Icons.category",
+  "favoriteTitle": "Favorites",
+  "favoriteIcon": "Icons.favorite"
 }
 
 

@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 
 class TitlesAndIcons {
+//  static GlobalConfiguration _cfg;
+//
+//  TitlesAndIcons() {
+//    _cfg = new GlobalConfiguration();
+//  }
+
+//TODO: Implantar SingleTon, antes de qquer coisa, e é logico testar
+
   final Map<String, Object> _tabs = {
+    //'categoryTitle': _cfg.getString("categoryTitle"),
     'categoryTitle': "Categories",
     'categoryIcon': Icons.category,
     'favoriteTitle': "Favorites",
