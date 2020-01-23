@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:global_configuration/global_configuration.dart';
 
+import '../utils/parseYaml.dart';
 import '../views/category_meals.dart';
 import '../views/filters.dart';
 import '../views/meals_details.dart';
 import '../views/tabs.dart';
 
 class Routes {
-  static final String _viewTabs = _cfg.getString("tabs");
-  static final String _viewCategoryMeals = _cfg.getString("categoryMeals");
-  static final String _viewMealsDetails = _cfg.getString("mealsDetails");
-  static final String _viewFilters = _cfg.getString("filters");
-  static GlobalConfiguration _cfg;
+  static ParseYaml _py;
+  static final String _viewTabs = _py.get("tabs");
+  static final String _viewCategoryMeals = _py.get("categoryMeals");
+  static final String _viewMealsDetails = _py.get("mealsDetails");
+  static final String _viewFilters = _py.get("filters");
 
   Routes() {
-    _cfg = new GlobalConfiguration();
+    _py = ParseYaml('./assets/cfg/config.yaml');
   }
 
   Map<String, WidgetBuilder> toViews() {
