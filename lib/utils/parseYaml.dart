@@ -4,25 +4,22 @@ import 'package:yaml/yaml.dart';
 
 class ParseYaml {
   Map _fileParsed;
-  String _pathFile;
+  final String _pathYamlFile = './assets/cfg/config.yaml';
   var _output;
-
   static ParseYaml _instance;
 
-  ParseYaml._singletonConstructor(String configPathFile) {
-    this._pathFile = configPathFile;
+  ParseYaml._singletonConstructor() {
     loadConfigFile();
   }
 
-  factory ParseYaml(String configPathFile) {
-    _instance ??= ParseYaml._singletonConstructor(configPathFile);
+  factory ParseYaml() {
+    _instance ??= ParseYaml._singletonConstructor();
     return _instance;
   }
 
   loadConfigFile() {
-    File file = File(this._pathFile);
+    File file = File(this._pathYamlFile);
     if (file.existsSync()) {
-      //todo nao esta achando o arquivo, ele salta este if!!!why?
       this._fileParsed = loadYaml(file.readAsStringSync());
     } else {
       print('File not found.');
@@ -44,6 +41,6 @@ class ParseYaml {
 }
 
 void main() {
-  ParseYaml p = ParseYaml('./assets/cfg/concfig.yaml');
+  ParseYaml p = ParseYaml();
   print(p.toString());
 }

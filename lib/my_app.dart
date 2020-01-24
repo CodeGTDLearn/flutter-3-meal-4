@@ -1,7 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
-import './config/routes.dart';
 import './config/themes.dart';
+import 'config/routes.dart';
 
 class MyApp extends StatefulWidget {
   @override
