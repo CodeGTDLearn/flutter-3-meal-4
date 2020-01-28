@@ -33,14 +33,9 @@ class ParseYaml {
     });
     return this._output.toString();
   }
-
-  @override
-  String toString() {
-    return 'ParseYaml{_configFileParsed: $_fileParsed}';
-  }
 }
 
 void main() {
   ParseYaml p = ParseYaml();
-  print(p.toString());
+  print(p.get('produtos'));
 }
