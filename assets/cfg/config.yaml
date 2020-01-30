@@ -1,9 +1,6 @@
 #ROUTES CONFIGURATION
 tabs: /
 categoryMeals: /category-meals
-
-#translations words
-produtos: products
-clientes: clients
-
+mealsDetails: /meal-details
+filters: /filters
 

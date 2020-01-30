@@ -1,10 +1,9 @@
-import 'dart:io';
-
 import 'package:yaml/yaml.dart';
+import 'dart:ui';
 
 class ParseYaml {
   Map _fileParsed;
-  final String _pathYamlFile = './assets/cfg/config.yaml';
+  final String _pathYamlFile = './assets/cfg/teste.json';
   var _output;
   static ParseYaml _instance;
 
@@ -17,13 +16,16 @@ class ParseYaml {
     return _instance;
   }
 
-  loadConfigFile() {
-    File file = File(this._pathYamlFile);
-    if (file.existsSync()) {
-      this._fileParsed = loadYaml(file.readAsStringSync());
-    } else {
-      print('File not found.');
-    }
+  loadConfigFile() async {
+//    String data = await rootBundle.loadString(_pathYamlFile);
+
+//    File data = File(this._pathYamlFile);
+//    if (data != null) {
+////      this._fileParsed = loadYaml(data.readAsStringSync());
+//      this._fileParsed = loadYaml(data);
+//    } else {
+//      print('File not found.');
+//    }
   }
 
   String get(var key) {
@@ -37,5 +39,5 @@ class ParseYaml {
 
 void main() {
   ParseYaml p = ParseYaml();
-  print(p.get('produtos'));
+  print(p.get('tabs'));
 }
