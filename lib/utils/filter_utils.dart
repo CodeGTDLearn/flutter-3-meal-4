@@ -26,7 +26,7 @@ class FilterUtils {
       'isVegetarian': _isVegetarian
     };
 
-    DB_FILTERS = _filterMeals;
+    dbFilters = _filterMeals;
 
     var _mealsAfterFiltering = DB_MEALS.where((meal) {
       if (_filterMeals['isGlutenFree'] && !meal.isGlutenFree) return false;
@@ -36,6 +36,6 @@ class FilterUtils {
       return true;
     }).toList();
 
-    db_filter_meals = _mealsAfterFiltering;
+    dbFilterMeals = _mealsAfterFiltering;
   }
 }

@@ -2,7 +2,7 @@ import 'package:meal_4/entity/meal.dart';
 import 'package:meal_4/enums/affordability.dart';
 import 'package:meal_4/enums/complexity.dart';
 
-List<Meal> db_filter_meals = [
+List<Meal> dbFilterMeals = [
   Meal(
     id: 'm1',
     categories: [

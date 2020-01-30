@@ -12,7 +12,7 @@ class ViewMealsDetails extends StatefulWidget {
 }
 
 class _ViewMealsDetailsState extends State<ViewMealsDetails> {
-  List<Meal> _favoriteMeals = db_fav_meals;
+  List<Meal> _favoriteMeals = dbFavMeals;
   Specs _dim;
 
   @override

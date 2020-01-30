@@ -6,7 +6,7 @@ import '../utils/specs.dart';
 import '../widget/list_meals.dart';
 
 class ViewFavorites extends StatelessWidget {
-  final List<Meal> _favoriteMeals = db_fav_meals;
+  final List<Meal> _favoriteMeals = dbFavMeals;
 
   @override
   Widget build(BuildContext context) {

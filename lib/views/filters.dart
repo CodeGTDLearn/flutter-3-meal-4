@@ -7,7 +7,7 @@ import '../utils/specs.dart';
 import '../widget/drawer.dart';
 
 class ViewFilters extends StatefulWidget {
-  Map<String, bool> _myAppFilters = DB_FILTERS;
+  Map<String, bool> _myAppFilters = dbFilters;
 
   @override
   _ViewFiltersState createState() => _ViewFiltersState();

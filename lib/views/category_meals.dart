@@ -5,7 +5,7 @@ import '../entity/meal.dart';
 import '../widget/list_meals.dart';
 
 class ViewCategoryMeals extends StatefulWidget {
-  final List<Meal> _displayedMeals = db_filter_meals;
+  final List<Meal> _displayedMeals = dbFilterMeals;
 //  final List<Meal> _displayedMeals;
 //
 //  ViewCategoryMeals(this._displayedMeals);

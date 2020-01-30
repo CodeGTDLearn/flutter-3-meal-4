@@ -1,4 +1,4 @@
-Map<String, bool> DB_FILTERS = {
+Map<String, bool> dbFilters = {
   'isGlutenFree': false,
   'isLactoseFree': false,
   'isVegan': false,
